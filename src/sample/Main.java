@@ -18,6 +18,7 @@ public class Main extends Application {
         primaryStage.setTitle("My Notepad++");
         InputStream iconStream=getClass().getResourceAsStream("/resources/NotepadIcon.png");
         Image image= new Image(iconStream);
+        iconStream.close();////////////////////////////////////////?????????????????????TODO check
         primaryStage.getIcons().add(image);
         primaryStage.setScene(new Scene(root, 800, 600));
         createMainFrame(primaryStage);

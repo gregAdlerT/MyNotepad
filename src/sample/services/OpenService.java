@@ -40,7 +40,7 @@ public class OpenService {
         if (isNewEmptyArea){                                               //if user try to open new document
             newTab= getNewTab(null);
             newTab.setContent(new Area(""));
-        }else {                                                            //if user try file from his file system
+        }else {                                                            //if user try to open file from his file system
             FileChooser chooser=getFileChooser("NAVIGATE TO YOUR FILE");
             File selectedFile= chooser.showOpenDialog(null);
             if (selectedFile==null){                                      //if user canceled dialog
@@ -205,7 +205,9 @@ public class OpenService {
 
     }
 
-
+//this operator allows turn on/off watchChanges on opened file/directory service
+// if variable boolean on true-> turn on change listener
+//if variable boolean on false-> turn off change listener
     private void watchServiceOperator(boolean on,File file){
         if (file.isDirectory()){                                           //if file directory we working with project
             if (on){                                                       // here is turn on mechanism for project
