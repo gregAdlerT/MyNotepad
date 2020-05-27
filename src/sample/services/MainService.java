@@ -10,6 +10,7 @@ public class MainService {
     private final  BorderPane contentArea;
     private TabPane tabPane= new TabPane();
     File directory=new File(".");
+    
     OpenService openFileService ;
     SaveService saveService;
 

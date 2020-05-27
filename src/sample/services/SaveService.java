@@ -36,11 +36,8 @@ public class SaveService {
                 selectedFile=new File(selectedFile.getAbsolutePath()+".txt");
             }
             if (isFileExists(selectedFile)) {        //if not exist or file exist and changes confirmed
-                try {
-                    OutputStream output = new FileOutputStream(selectedFile);
+                try(OutputStream output = new FileOutputStream(selectedFile)) {
                     output.write(text.getBytes());
-                    output.flush();
-                    output.close();
                     directory = new File(selectedFile.getParent());//in next saving, default navigate to directory used before
                     return true;
                 } catch (IOException e) {

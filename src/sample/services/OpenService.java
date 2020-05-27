@@ -158,10 +158,10 @@ public class OpenService {
             }
         }
     }
-
+  
+  //used recursive method: in the loop if current file is directory method call himself
     private void fillTree(TreeItem<File> rootItem, File directory) {
-        try {
-            DirectoryStream<Path>stream=Files.newDirectoryStream(Paths.get(directory.getAbsolutePath()));
+        try( DirectoryStream<Path>stream=Files.newDirectoryStream(Paths.get(directory.getAbsolutePath()))) {
             for (Path entry:stream){
                 File file=entry.toFile();
                 TreeItem<File>item=new TreeItem<>(file);
